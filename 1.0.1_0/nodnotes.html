@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="jquery-1.9.1.min.js"></script>
+    <script src="notes.js"></script>
+    <title>NodNotes</title>
+    <style>
+        *{  outline:0; 
+        border-radius: 5px;
+            color: rgb(112, 140, 167);
+         }
+        body {
+            font-family: ubuntu, helvetica, sans-serif;
+            font-size: 12px;
+          
+
+        }
+
+        h1, p, a, input, ul, ol, dl, li, dt, dd, div {
+            margin: 0;
+            padding: 0
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #wrap {
+            width: 500px;
+            height: auto;
+            margin: 0 auto
+        }
+
+        #header {
+            margin: 20px 0 20px 0;
+        }
+
+            #header h1 {
+                display: inline;
+                
+            }
+            #header em {
+                margin-left:10px;
+            }
+
+            #header .input {
+                width: 40px;
+                height: 30px;
+                margin-right: 5px;
+                float: right;
+                background-color: #fff;
+                color: rgb(56, 144, 255);;
+                border: 3px solid rgb(56, 144, 255);;
+                cursor: pointer;
+            }
+
+                #header .input:hover {
+                    background-color: rgb(56, 144, 255);;
+                    color: #fff
+                }
+
+
+
+        .edit_box {
+            width: 56px;
+            height: 26px;
+            float: right;
+            background-color: rgb(100, 174, 216);
+            display:none
+        }
+
+        .del {
+            width: 50px;
+            height: 20px;
+            float: left;
+            margin: 3px 0 3px 3px;
+            background-color: #fff;
+            border: none;
+            color: rgb(100, 174, 216);
+            font-weight: bold;
+            cursor: pointer
+        }
+
+        .del:hover {    
+        background-color: rgb(100, 174, 216);
+        color:#eee;
+        }
+
+        #input_area {
+            width: 490px;
+            height: 30px;
+            margin-left: 5px
+        }
+
+        #text {
+            width: 400px;
+            height: 30px;
+            font-size: 1.2em;
+            border: 3px solid #ddd;
+            padding-left: 10px;
+            box-sizing:border-box;
+           
+        }
+
+        .btn {
+            width: 75px;
+            height: 30px;
+            margin: 0;
+            font-weight: bold;
+            float: right;
+            border: 3px solid #ddd;
+            cursor: pointer;
+        }
+
+        .on_btn, .btn:hover 
+        {
+                background-color: rgb(100, 174, 216);
+                color: #fff;
+                border-color: rgb(180, 214, 233);
+            }
+
+        .off_btn {
+            background-color: #fff;
+         
+        }
+
+        #list {
+            text-align: left;
+            font-weight: bold;
+            margin: 20px 0;
+            font-size: 16px;
+            float: left
+        }
+
+            #list li {
+                width: 500px;
+                margin-bottom: 5px;
+                cursor: pointer;
+                float: left
+            }
+
+        .c_box {
+            width: 16px;
+            height: 16px;
+            float: left;
+            border: 5px solid #eee;
+            display: inline-block;
+            margin-right: 5px;
+            cursor: pointer;
+            display: block;
+
+        }
+
+        .c_box:hover{
+             border-color: #ddd
+        }
+
+        .checked {
+            background-color:rgb(174, 228, 177);
+            border-color: rgb(225, 250, 226);
+            box-shadow: 0px -1px 0 #fff inset
+        }
+
+         .checked + .list_text {
+            background-color:#ddd;
+            text-decoration: line-through;
+            color:#888;
+            opacity:0.4;
+        }
+
+        .checked + .list_text:after, .act:after{
+            content:"STANDBY";
+            position: absolute;
+            top:4px;
+            right:5px;
+            font-size: 11px;
+            color:#888;
+        }
+
+        .act:after{
+            color:#bbb;
+            content:"DONE?";
+        }
+
+        .list_text {
+            width: 400px;
+            float: left;
+            height:26px;
+            padding-left: 10px;
+            box-sizing:border-box;
+            overflow:hidden;
+             text-shadow:0 1px 0px #fff;
+             text-transform:capitalize;
+             position:relative;
+        }
+
+        .list_text:hover, .act {
+                background-color: #eee;
+            }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <h1>NodNotes</h1><em>@nodws</em>
+          
+        </div>
+        <div id="content">
+            <div id="input_area">
+                <input id="text" type="text" value="" />
+               
+                <input class="btn off_btn" type="button" value="ADD" />
+                
+            </div>
+            <div>
+                <ul id="list">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

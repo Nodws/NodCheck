@@ -1,0 +1,16 @@
+{
+   "browser_action": {
+      "default_icon": "icon16.png",
+      "default_popup": "nodnotes.html"
+   },
+   "description": "A To-do list",
+   "homepage_url": "http://nodws.com/",
+   "icons": {
+      "128": "icon128.png",
+      "16": "icon16.png"
+   },
+  "manifest_version": 2,
+   "name": "NodNotes",
+   "permissions": [ "storage" ],
+   "version": "1.0.1"
+}
